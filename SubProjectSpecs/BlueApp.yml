@@ -1,0 +1,78 @@
+---
+name: BlueApp
+options:
+  bundleIdPrefix: co.uk.deliveroo
+targets:
+  BlueApp:
+    type: application
+    platform: iOS
+    deploymentTarget: '14.5'
+    info:
+      path: SubProjects/BlueApp/SupportingFiles/Info.plist
+      properties:
+        CFBundleDisplayName: Blue App
+        UILaunchStoryboardName: LaunchScreen
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+    settings:
+      base:
+        SUPPORTS_MACCATALYST: 'NO'
+        MARKETING_VERSION: 1.1.0
+        BUILD_LIBRARY_FOR_DISTRIBUTION: 'YES'
+      configs:
+        Debug:
+          OTHER_CFLAGS: "$(inherited) -fembed-bitcode-marker"
+          BITCODE_GENERATION_MODE: marker
+          CLANG_ENABLE_CODE_COVERAGE: 'YES'
+        Release:
+          OTHER_CFLAGS: "$(inherited) -fembed-bitcode"
+          BITCODE_GENERATION_MODE: bitcode
+          CLANG_ENABLE_CODE_COVERAGE: 'NO'
+    sources:
+      - path: Core
+        createIntermediateGroups: true
+      - path: SubProjects/BlueApp/Sources
+        createIntermediateGroups: true
+    dependencies: 
+       - target: AppCommon
+         link: true
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+      - AppTests
+      - AppUITests
+  AppTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: '14.5'
+    info:
+      path: AppTests/Info.plist
+    settings:
+      CLANG_ENABLE_CODE_COVERAGE: 'NO'
+    codeSign: false
+    dependencies:
+    - target: BlueApp
+      link: true
+    sources:
+    - path: Tests/AppTests
+      excludes: 
+        - Info.plist
+      createIntermediateGroups: true
+  AppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: '14.5'
+    info:
+      path: AppUITests/Info.plist
+    settings:
+      CLANG_ENABLE_CODE_COVERAGE: 'NO'
+      TEST_TARGET_NAME: BlueApp
+    codeSign: false
+    dependencies:
+    - target: BlueApp
+      link: true
+    sources:
+    - path: Tests/AppUITests
+      createIntermediateGroups: true
+      excludes: 
+        - Info.plist

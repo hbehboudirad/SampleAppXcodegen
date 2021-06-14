@@ -1,0 +1,14 @@
+---
+name: SampleAppXcodegen
+options:
+  bundleIdPrefix: co.uk.deliveroo
+include:
+- path: "SubProjectSpecs/AppCommon.yml"
+  relativePaths: false
+  transitivelyLinkDependencies: true
+- path: "SubProjectSpecs/GreenApp.yml"
+  relativePaths: false
+  transitivelyLinkDependencies: true
+- path: "SubProjectSpecs/BlueApp.yml"
+  relativePaths: false
+  transitivelyLinkDependencies: true
