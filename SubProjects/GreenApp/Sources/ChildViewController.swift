@@ -7,6 +7,7 @@
 
 import UIKit
 import AppCommon
+import ColorsModule
 
 class ChildViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class ChildViewController: UIViewController {
     }
     
     func setupView() {
-        view.backgroundColor = .green
+        view.backgroundColor = .rooGreen
         
         let captionLabel = UILabel()
         captionLabel.text = "Blue Child Screen".toUpperCase()

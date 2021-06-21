@@ -1,0 +1,16 @@
+PODS:
+  - ColorsModule (2.0.0)
+
+DEPENDENCIES:
+  - ColorsModule (from `SubModules/ColorsModule`)
+
+EXTERNAL SOURCES:
+  ColorsModule:
+    :path: SubModules/ColorsModule
+
+SPEC CHECKSUMS:
+  ColorsModule: 9f0619f12307116b7d432e3b21f91142fb04c11b
+
+PODFILE CHECKSUM: 49ccad13b0c54d389b17abb94b3d2af2f92032e5
+
+COCOAPODS: 1.10.1

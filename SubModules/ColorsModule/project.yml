@@ -1,0 +1,8 @@
+---
+name: ColorsModule
+options:
+  bundleIdPrefix: co.uk.deliveroo
+include:
+- path: "ColorsModule.yml"
+  relativePaths: false
+  transitivelyLinkDependencies: true
